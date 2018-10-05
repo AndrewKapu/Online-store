@@ -1,31 +1,41 @@
 class Cart {
     constructor(source, container = '.cart-drop-down'){
         this.source = source;
-        this.container = container;
+        this.container = container; //Селектор HTML-элемента самой корзины в моей вёрстке
         this.countGoods = 0; //Общее кол-во товаров в корзине
         this.amount = 0; // Общая сумма
         this.cartItems = []; //Все товары в корзине
         this._init(this.source);
     }
-
     /**
-     * Рендер всех HTML элементов самой корзины
+     * Рендер HTML элементов самой корзины
      * @private
      */
     _render(){
+        //Блок с товарами корзины
         let $cartItemsDiv = $('<div/>', {
             class: 'cart-items-wrap'
         });
+        //Блок с отображением суммы корзины
         let $totalAmount = $('<div/>', {
-            class: 'cart-summary sum-amount'
+            class: 'total'
         });
-        let $totalPrice = $('<div/>', {
-            class: 'cart-summary sum-price'
+        let $span1 = $('<span>TOTAL</span>');//Для отображения суммы
+        let $span2 = $('<span/>');//Для отображения суммы
+        $totalAmount.append($span1);
+        $totalAmount.append($span2);
+        //Блок с кнопками
+        let $buttons = $('<div/>', {
+            class: 'buttons'
         });
-        $(this.container).text('Корзина');
+        let $btn1 = $('<a href="checkout.html">Checkout</a>');
+        let $btn2 = $('<a href="shopping%20cart.html">Go to cart</a>');
+        $buttons.append($btn1);
+        $buttons.append($btn2);
+
         $cartItemsDiv.appendTo($(this.container));
         $totalAmount.appendTo($(this.container));
-        $totalPrice.appendTo($(this.container));
+        $buttons.appendTo($(this.container));
     }
     /**
      * Метод рендерит продукт на основании данных о нём из объекта продукта
@@ -33,6 +43,7 @@ class Cart {
      * @private
      */
     _renderItem(product){
+        // Контейнер продукта
         let $container = $('<div/>', {
             class: 'cart-product',
             'data-product': product.id_product
@@ -45,20 +56,27 @@ class Cart {
         $container.append($(`<a href="#"><img src="${product.imageSrc}" alt="photo">`));
         $container.append($text);
         $text.append($(`<h4>${product.product_name}</h4>`));
-        $text.append($(`<span class="stars"><i class="fas fa-star"></span>`));
+        let $starsSpan = $('<span/>', {
+            class: 'stars'
+        });
+        $text.append($starsSpan);
+        for (let i = 0; i < product.rating; i++) {
+            $starsSpan.append('<i class="fas fa-star"></i>');
+        }
         $text.append($(`<p>${product.quantity}<span>x</span>${product.price}</p>`));
         $container.append($(`</a><a href="#" class="button-all action remove-btn"><i class="fas fa-times"></i></a>`));
-
-        /*$container.append($(`<p class="product-quantity">${product.quantity}</p>`));
-        $container.append($(`<p class="product-price">${product.price} руб.</p>`));
-        $container.append($(`<button class="remove-btn">Удалить товар</button>`));*/
         $('.cart-items-wrap').append($container);
     }
-    _renderSum(amount, countGoods){
-        $('.sum-amount').text(`Всего товаров в корзине: ${countGoods}`);
-        $('.sum-price').text(`Общая сумма: ${amount} руб.`);
+    _renderSum(amount){
+        $('.total span:last-child').text(`$${amount}`);
 
     }
+
+    /**
+     * Функция инициализирует JSON-файл с сервера и отображает информацию в корзине на основании JSON файла с сервера
+     * @param {JSON-file} source Файл JSON, который мы получаем сервера
+     * @private
+     */
     _init(source){
         this._render();
         this._dragDrop();
@@ -71,7 +89,7 @@ class Cart {
                 }
                 this.countGoods = data.countGoods;
                 this.amount = data.amount;
-                this._renderSum(data.amount, data.countGoods);
+                this._renderSum(data.amount);
             })
     }
     _updateCart(product){

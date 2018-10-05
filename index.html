@@ -21,35 +21,7 @@
             <div class="header-right">
                 <a href="shopping%20cart.html" class="button"><img src="img/shop.svg" alt="shop"></a> <a href="#" class="my-acc button">My Account</a>
                     <div class="cart-drop-down">
-                        <div class="cart-product">
-                            <a href="#"><img src="img/drop-down-cart1.jpg" alt="photo">
-                                <div class="cart-product-text">
-                                    <h4>Rebox Zane</h4>
-                                    <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </span>
-                                    <p>1  <span>x</span>   $250</p>
-                                </div>
-                                <a href="#" class="button-all action"><i class="fas fa-times"></i></a>
-                            </a>
-                        </div>
-                        <div class="cart-product">
-                            <a href="#"><img src="img/drop-down-cart2.jpg" alt="photo">
-                                <div class="cart-product-text">
-                                    <h4>Rebox Zane</h4>
-                                    <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </span>
-                                    <p>1  <span>x</span>   $250</p>
-                                </div>
-                            </a>
-                            <a href="#" class="button-all action"><i class="fas fa-times"></i></a>
-                        </div>
-                        <div class="total">
-                            <span>TOTAL</span><span>$500.00</span>
-                        </div>
-                        <div class="buttons">
-                            <a href="checkout.html">Checkout</a>
-                            <a href="shopping%20cart.html">Go to cart</a>
-                        </div>
+
                     </div>
             </div>
         </div>
@@ -310,6 +282,19 @@
             </div>
         </div>
     </footer>
+    <script src="jquery-3.3.1.js"></script>
+    <script src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="Cart.js"></script>
+    //Нижеприведённый скрипт будет следить за кнопкой "Add to cart"
+    <script>
+        $(document).ready(() => {
+            let cart = new Cart('getBasket.json');
+            $('.add-to-cart').click((event) => {
+                event.preventDefault();
+                console.log(event.currentTarget);
+            });
+        });
+    </script>
 </body>
 
 </html>

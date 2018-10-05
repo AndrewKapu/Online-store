@@ -1,5 +1,5 @@
 {
-  "amount": 180,
+  "amount": 500,
   "countGoods": 2,
   "contents": [
     {
@@ -7,14 +7,16 @@
       "product_name": "REBOX ZANE",
       "price": 250,
       "quantity": 1,
-      "imageSrc": "img/drop-down-cart1.jpg"
+      "imageSrc": "img/drop-down-cart1.jpg",
+      "rating": 5
     },
     {
       "id_product": 456,
       "product_name": "REBOX ZANE",
       "price": 250,
       "quantity": 1,
-      "imageSrc": "img/drop-down-cart2.jpg"
+      "imageSrc": "img/drop-down-cart2.jpg",
+      "rating": 5
     }
   ]
 }
