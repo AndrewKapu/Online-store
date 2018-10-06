@@ -67,7 +67,7 @@
     </header>
     <div class="featured-items container">
 
-        <div class="parent-product">
+        <!--<div class="parent-product">
             <a href="#" class="featured-item">
                     <img src="img/featured1.jpg" alt="photo">
                 <div class="featured-description">
@@ -76,10 +76,9 @@
                 </div>
             </a>
             <div class="pos-add-to-cart">
-                <a href="#" class="add-to-cart"><span><img src="img/hover-buy.svg" alt="add to your shopping list"><h5>Add to Cart</h5></span></a>
+                <a href="#" class="add-to-cart"><span><img src="img/hover-buy.svg" alt="add to your shopping list"><span class="add-to-cart-button">Add to Cart</span></span></a>
             </div>
         </div>
-
         <div class="parent-product">
             <a href="#" class="featured-item">
                     <img src="img/featured2.jpg" alt="photo">
@@ -163,7 +162,7 @@
             <div class="pos-add-to-cart">
                 <a href="#" class="add-to-cart"><span><img src="img/hover-buy.svg" alt="add to your shopping list"><h5>Add to Cart</h5></span></a>
             </div>
-        </div>
+        </div>-->
 
         <div class="browse-button container"><a href="products.html" class="browse-all button">Browse All Product</a>
         </div>
@@ -285,8 +284,10 @@
     <script src="jquery-3.3.1.js"></script>
     <script src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
     <script src="Cart.js"></script>
+    <script src="Product.js"></script>
     //Нижеприведённый скрипт будет следить за кнопкой "Add to cart"
     <script>
+        let product = new Product('catalogData.json');
         $(document).ready(() => {
             let cart = new Cart('getBasket.json');
             $('.add-to-cart').click((event) => {
