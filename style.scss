@@ -153,7 +153,7 @@ img [alt="shop"]:hover {
 }
 
 .cart-drop-down {
-  display: none;
+  //display: none;
   padding: 21px 17px;
   width: 265px;
   position: absolute;
@@ -184,6 +184,9 @@ img [alt="shop"]:hover {
       display: flex;
     }
   }
+  .remove-btn i {
+    pointer-events: none;
+  }
   .stars {
     font-size: 12px;
     font-weight: 400;
@@ -198,7 +201,7 @@ img [alt="shop"]:hover {
     text-transform: uppercase;
     margin-top: 12px;
     span {
-      font-size: 10px;
+      //font-size: 10px;
       margin: 0 2px;
     }
   }

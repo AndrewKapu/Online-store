@@ -287,12 +287,12 @@
     <script src="Product.js"></script>
     //Нижеприведённый скрипт будет следить за кнопкой "Add to cart"
     <script>
+        let cart = new Cart('getBasket.json');
         let product = new Product('catalogData.json');
         $(document).ready(() => {
-            let cart = new Cart('getBasket.json');
             $('.add-to-cart').click((event) => {
                 event.preventDefault();
-                console.log(event.currentTarget);
+                cart._addProduct(event.currentTarget);
             });
         });
     </script>

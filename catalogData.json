@@ -1,14 +1,58 @@
 [
   {
-    "id_product": 123,
+    "id_product": 1,
     "product_name": "Mango People T-shirt",
     "price": 52,
-    "imageSrc": "img/featured1.jpg"
+    "imageSrc": "img/featured1.jpg",
+    "rating": 5
   },
   {
-    "id_product": 456,
+    "id_product": 2,
     "product_name": "Mango People T-shirt",
     "price": 52,
-    "imageSrc": "img/featured2.jpg"
+    "imageSrc": "img/featured2.jpg",
+    "rating": 5
+  },
+  {
+    "id_product": 3,
+    "product_name": "Mango People T-shirt",
+    "price": 52,
+    "imageSrc": "img/featured3.jpg",
+    "rating": 5
+  },
+  {
+    "id_product": 4,
+    "product_name": "Mango People T-shirt",
+    "price": 52,
+    "imageSrc": "img/featured4.jpg",
+    "rating": 5
+  },
+  {
+    "id_product": 5,
+    "product_name": "Mango People T-shirt",
+    "price": 52,
+    "imageSrc": "img/featured5.jpg",
+    "rating": 5
+  },
+  {
+    "id_product": 6,
+    "product_name": "Mango People T-shirt",
+    "price": 52,
+    "imageSrc": "img/featured6.jpg",
+    "rating": 5
+  },
+  {
+    "id_product": 7,
+    "product_name": "Mango People T-shirt",
+    "price": 52,
+    "imageSrc": "img/featured7.jpg",
+    "rating": 5
+  },
+  {
+    "id_product": 8,
+    "product_name": "Mango People T-shirt",
+    "price": 52,
+    "imageSrc": "img/featured8.jpg",
+    "rating": 5
   }
 ]

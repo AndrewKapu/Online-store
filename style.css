@@ -471,7 +471,6 @@ img [alt="shop"]:hover {
   margin-left: 13px; }
 
 .cart-drop-down {
-  display: none;
   padding: 21px 17px;
   width: 265px;
   position: absolute;
@@ -498,6 +497,8 @@ img [alt="shop"]:hover {
       margin-bottom: 10px; }
     .cart-drop-down .cart-product a {
       display: flex; }
+  .cart-drop-down .remove-btn i {
+    pointer-events: none; }
   .cart-drop-down .stars {
     font-size: 12px;
     font-weight: 400;
@@ -511,7 +512,6 @@ img [alt="shop"]:hover {
     text-transform: uppercase;
     margin-top: 12px; }
     .cart-drop-down p span {
-      font-size: 10px;
       margin: 0 2px; }
   .cart-drop-down .total {
     display: flex;

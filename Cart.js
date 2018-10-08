@@ -48,12 +48,17 @@ class Cart {
             class: 'cart-product',
             'data-product': product.id_product
         }).on('click', '.remove-btn', event => {
+            event.preventDefault();
             this._removeProduct(event);
         });
         let $text = $('<div/>', {
             class: 'cart-product-text'
         });
-        $container.append($(`<a href="#"><img src="${product.imageSrc}" alt="photo">`));
+        let $productLink = $('<a>', {href: '#'}).appendTo($container);
+        let $productImg = $('<img>', {src: `${product.imageSrc}`, alt: 'photo'}).css({
+            widrh: '70px',
+            height: '85px'
+        }).appendTo($productLink);
         $container.append($text);
         $text.append($(`<h4>${product.product_name}</h4>`));
         let $starsSpan = $('<span/>', {
@@ -63,8 +68,14 @@ class Cart {
         for (let i = 0; i < product.rating; i++) {
             $starsSpan.append('<i class="fas fa-star"></i>');
         }
-        $text.append($(`<p>${product.quantity}<span>x</span>${product.price}</p>`));
-        $container.append($(`</a><a href="#" class="button-all action remove-btn"><i class="fas fa-times"></i></a>`));
+        //$text.append($(`<p>${product.quantity}<span>x</span>${product.price}</p>`));
+        let $paragraph = $('<p>').appendTo($text);
+        let $productQuantity = ($('<span>', {class: 'quantity', text: `${product.quantity}`})).appendTo($paragraph);
+        let $multiplier = $('<span>x</span>').appendTo($paragraph);
+        let $productPrice = $('<span></span>', {text: `$${product.price}`}).appendTo($paragraph);
+        //$container.append($(`</a><a href="#" class="button-all action remove-btn"><i class="fas fa-times"></i></a>`));
+        let $removeBtn = $('<a href="#" class="button-all action remove-btn"><i class="fas fa-times"></i>',
+            {href: "#", class: "button-all action remove-btn"}).appendTo($container);
         $('.cart-items-wrap').append($container);
     }
     _renderSum(amount){
@@ -93,10 +104,15 @@ class Cart {
             })
     }
     _updateCart(product){
-        let $container = $(`div[data-product="${product.id_product}"]`);
-        $container.find('.product-quantity').text(product.quantity);
-        $container.find('.product-price').text(`${product.quantity*product.price} руб.`);
+        let $currentProduct = $(`[data-product="${product.id_product}"]`);
+        $currentProduct.find('.quantity').text(`${product.quantity}`);
     }
+
+    /**
+     * Метод добавления товара в корзину
+     * @param {HTMLElement} element конопка "купить" со всеми data-аттрибутами для формирования объекта товара
+     * @private
+     */
     _addProduct(element){
         let productId = +$(element).data('id');
         let find = this.cartItems.find(product => product.id_product === productId);
@@ -110,7 +126,9 @@ class Cart {
                 id_product: productId,
                 price: +$(element).data('price'),
                 product_name: $(element).data('name'),
-                quantity: 1
+                quantity: 1,
+                imageSrc: $(element).data('img'),
+                rating: $(element).data('rating')
             };
             this.cartItems.push(product);
             this.amount += product.price;
@@ -118,7 +136,6 @@ class Cart {
             this._renderItem(product);
         }
         this._renderSum(this.amount, this.countGoods);
-
     }
 
     /**
@@ -127,6 +144,7 @@ class Cart {
      * @private
      */
     _removeProduct(event){
+        //console.log(event);
         for (let i = 0; i < this.cartItems.length; i++) {
             //находим в cartItems[] соответствующий товар и работаем с ним в цикле
             if (this.cartItems[i].id_product == event.target.parentNode.getAttribute('data-product')) {
