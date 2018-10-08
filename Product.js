@@ -27,7 +27,7 @@ class Product {
                     let $addCartSpan = $('<span>').appendTo($buyBtn);
                     let $busketImg = $('<img src="img/hover-buy.svg" alt="add to your shopping list">').appendTo($addCartSpan);
                     let $textSpan = $('<span>Add to Cart</span>', {class: 'add-to-cart-button'}).appendTo($addCartSpan);
-                    //$(container).append($wrapper).before($('.browse-button'));
+                    $('.browse-button').before($wrapper);
                 }
             });
 
