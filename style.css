@@ -471,6 +471,7 @@ img [alt="shop"]:hover {
   margin-left: 13px; }
 
 .cart-drop-down {
+  display: none;
   padding: 21px 17px;
   width: 265px;
   position: absolute;

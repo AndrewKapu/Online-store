@@ -67,102 +67,6 @@
     </header>
     <div class="featured-items container">
 
-        <!--<div class="parent-product">
-            <a href="#" class="featured-item">
-                    <img src="img/featured1.jpg" alt="photo">
-                <div class="featured-description">
-                    <p>Mango People T-shirt</p>
-                    <span>$52.00</span>
-                </div>
-            </a>
-            <div class="pos-add-to-cart">
-                <a href="#" class="add-to-cart"><span><img src="img/hover-buy.svg" alt="add to your shopping list"><span class="add-to-cart-button">Add to Cart</span></span></a>
-            </div>
-        </div>
-        <div class="parent-product">
-            <a href="#" class="featured-item">
-                    <img src="img/featured2.jpg" alt="photo">
-                <div class="featured-description">
-                    <p>Mango People T-shirt</p>
-                    <span>$52.00</span>
-                </div>
-            </a>
-            <div class="pos-add-to-cart">
-                <a href="#" class="add-to-cart"><span><img src="img/hover-buy.svg" alt="add to your shopping list"><h5>Add to Cart</h5></span></a>
-            </div>
-        </div>
-        <div class="parent-product">
-            <a href="#" class="featured-item">
-                    <img src="img/featured3.jpg" alt="photo">
-                <div class="featured-description">
-                    <p>Mango People T-shirt</p>
-                    <span>$52.00</span>
-                </div>
-            </a>
-            <div class="pos-add-to-cart">
-                <a href="#" class="add-to-cart"><span><img src="img/hover-buy.svg" alt="add to your shopping list"><h5>Add to Cart</h5></span></a>
-            </div>
-        </div>
-        <div class="parent-product">
-            <a href="#" class="featured-item">
-                    <img src="img/featured4.jpg" alt="photo">
-                <div class="featured-description">
-                    <p>Mango People T-shirt</p>
-                    <span>$52.00</span>
-                </div>
-            </a>
-            <div class="pos-add-to-cart">
-                <a href="#" class="add-to-cart"><span><img src="img/hover-buy.svg" alt="add to your shopping list"><h5>Add to Cart</h5></span></a>
-            </div>
-        </div>
-        <div class="parent-product">
-            <a href="#" class="featured-item">
-                    <img src="img/featured5.jpg" alt="photo">
-                <div class="featured-description">
-                    <p>Mango People T-shirt</p>
-                    <span>$52.00</span>
-                </div>
-            </a>
-            <div class="pos-add-to-cart">
-                <a href="#" class="add-to-cart"><span><img src="img/hover-buy.svg" alt="add to your shopping list"><h5>Add to Cart</h5></span></a>
-            </div>
-        </div>
-        <div class="parent-product">
-            <a href="#" class="featured-item">
-                    <img src="img/featured6.jpg" alt="photo">
-                <div class="featured-description">
-                    <p>Mango People T-shirt</p>
-                    <span>$52.00</span>
-                </div>
-            </a>
-            <div class="pos-add-to-cart">
-                <a href="#" class="add-to-cart"><span><img src="img/hover-buy.svg" alt="add to your shopping list"><h5>Add to Cart</h5></span></a>
-            </div>
-        </div>
-        <div class="parent-product">
-            <a href="#" class="featured-item">
-                    <img src="img/featured7.jpg" alt="photo">
-                <div class="featured-description">
-                    <p>Mango People T-shirt</p>
-                    <span>$52.00</span>
-                </div>
-            </a>
-            <div class="pos-add-to-cart">
-                <a href="#" class="add-to-cart"><span><img src="img/hover-buy.svg" alt="add to your shopping list"><h5>Add to Cart</h5></span></a>
-            </div>
-        </div>
-        <div class="parent-product">
-            <a href="#" class="featured-item">
-                    <img src="img/featured8.jpg" alt="photo">
-                <div class="featured-description">
-                    <p>Mango People T-shirt</p>
-                    <span>$52.00</span>
-                </div>
-            </a>
-            <div class="pos-add-to-cart">
-                <a href="#" class="add-to-cart"><span><img src="img/hover-buy.svg" alt="add to your shopping list"><h5>Add to Cart</h5></span></a>
-            </div>
-        </div>-->
 
         <div class="browse-button container"><a href="products.html" class="browse-all button">Browse All Product</a>
         </div>
@@ -290,10 +194,10 @@
         let cart = new Cart('getBasket.json');
         let product = new Product('catalogData.json');
         $(document).ready(() => {
-            $('.add-to-cart').click((event) => {
-                event.preventDefault();
-                cart._addProduct(event.currentTarget);
-            });
+           $('.featured-items').on('click', '.add-to-cart', (event) => {
+               event.preventDefault();
+               cart._addProduct(event.currentTarget);
+           })
         });
     </script>
 </body>
