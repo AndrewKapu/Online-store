@@ -16,6 +16,7 @@ class Product {
             .then(result => result.json())
             .then(data => {
                 for (let product of data) {
+                    let $container = $(container);
                     let $wrapper = $('<div/>', {
                         class: 'parent-product'
                     });
@@ -31,6 +32,7 @@ class Product {
                     let $addCartSpan = $('<span>').appendTo($buyBtn);
                     let $busketImg = $('<img src="img/hover-buy.svg" alt="add to your shopping list">').appendTo($addCartSpan);
                     let $textSpan = $('<span></span>', {text: 'Add to Cart', class: 'add-to-cart-button'}).appendTo($addCartSpan);
+                    $wrapper.appendTo($container);
                     $('.browse-button').before($wrapper);
                 }
             });
