@@ -8,7 +8,9 @@
       "price": 250,
       "quantity": 1,
       "imageSrc": "img/drop-down-cart1.jpg",
-      "rating": 5
+      "rating": 5,
+      "color": "Red",
+      "Size": "XII"
     },
     {
       "id_product": 456,
@@ -16,7 +18,9 @@
       "price": 250,
       "quantity": 1,
       "imageSrc": "img/drop-down-cart2.jpg",
-      "rating": 5
+      "rating": 5,
+      "color": "Red",
+      "Size": "XII"
     }
   ]
 }

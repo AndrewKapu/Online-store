@@ -56,7 +56,7 @@ class Cart {
         });
         let $productLink = $('<a>', {href: '#'}).appendTo($container);
         let $productImg = $('<img>', {src: `${product.imageSrc}`, alt: 'photo'}).css({
-            widrh: '70px',
+            width: '70px',
             height: '85px'
         }).appendTo($productLink);
         $container.append($text);
@@ -104,11 +104,16 @@ class Cart {
                     localStorage.setItem('mycart', JSON.stringify(this.cartItems));
                     console.log('Items added');
                     this._renderSum(data.amount);
+                    if (!localStorage.getItem('cartAmount')) {
+                        localStorage.setItem('cartAmount', JSON.stringify(this.amount));
+                    }
                 })
         } else {
             this._render();
             console.log('Loading from LocalStorage');
             this.cartItems = JSON.parse(localStorage.getItem('mycart'));
+            this.amount = JSON.parse(localStorage.getItem('cartAmount'));
+            this._renderSum(this.amount);
             for (let product of this.cartItems) {
                 this._renderItem(product);
             }
@@ -147,6 +152,7 @@ class Cart {
             this._renderItem(product);
         }
         localStorage.setItem('mycart', JSON.stringify(this.cartItems));
+        localStorage.setItem('cartAmount', JSON.stringify(this.amount));
         this._renderSum(this.amount);
     }
 
@@ -163,7 +169,7 @@ class Cart {
                 this.cartItems[i].quantity--;
                 this.amount = this.amount - this.cartItems[i].price;
                 this.countGoods = this.countGoods - 1;
-                this._renderSum(this.amount, this.countGoods);
+                this._renderSum(this.amount);
 
                 if (this.cartItems[i].quantity < 1) {
                     this.cartItems.splice(i, 1);
@@ -172,8 +178,9 @@ class Cart {
                 } else {
                     this._updateCart(this.cartItems[i]);
                 }
+                localStorage.setItem('mycart', JSON.stringify(this.cartItems));
+                localStorage.setItem('cartAmount', JSON.stringify(this.amount));
             }
-            localStorage.setItem('mycart', JSON.stringify(this.cartItems));
         }
 
     }
