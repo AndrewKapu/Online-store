@@ -144,7 +144,9 @@ class Cart {
                 product_name: $(element).data('name'),
                 quantity: 1,
                 imageSrc: $(element).data('img'),
-                rating: $(element).data('rating')
+                rating: $(element).data('rating'),
+                color: $(element).data('color'),
+                size: $(element).data('size'),
             };
             this.cartItems.push(product);
             this.amount += product.price;
@@ -162,7 +164,6 @@ class Cart {
      * @private
      */
     _removeProduct(event){
-        //console.log(event);
         for (let i = 0; i < this.cartItems.length; i++) {
             //находим в cartItems[] соответствующий товар и работаем с ним в цикле
             if (this.cartItems[i].id_product == event.target.parentNode.getAttribute('data-product')) {

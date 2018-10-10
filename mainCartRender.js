@@ -3,6 +3,7 @@ class MainCart {
         this.container = container;
         this.source = JSON.parse(localStorage.getItem('mycart'));
         this._render(this.source, this.container);
+        this.renderTotalCost();
     }
 
     /**
@@ -82,5 +83,10 @@ class MainCart {
 
             let $x = $('<i class="fas fa-times"></i>').appendTo($removeSign);
         }
+    }
+
+    renderTotalCost() {
+        let amount = localStorage.getItem('cartAmount');
+        $('.total-margin').text(`$${amount}`);
     }
 }

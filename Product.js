@@ -28,7 +28,7 @@ class Product {
                     let $addCart = $('<div/>', {class: 'pos-add-to-cart'}).appendTo($wrapper);
                     let $buyBtn = $('<a>', {href: '#', class: 'add-to-cart', 'data-id': product.id_product,
                     'data-price': product.price, 'data-name': product.product_name, 'data-img': product.imageSrc,
-                    'data-rating': product.rating}).appendTo($addCart);
+                    'data-rating': product.rating, 'data-size': product.size, 'data-color': product.color,}).appendTo($addCart);
                     let $addCartSpan = $('<span>').appendTo($buyBtn);
                     let $busketImg = $('<img src="img/hover-buy.svg" alt="add to your shopping list">').appendTo($addCartSpan);
                     let $textSpan = $('<span></span>', {text: 'Add to Cart', class: 'add-to-cart-button'}).appendTo($addCartSpan);

@@ -10,7 +10,7 @@
       "imageSrc": "img/drop-down-cart1.jpg",
       "rating": 5,
       "color": "Red",
-      "Size": "XII"
+      "size": "XII"
     },
     {
       "id_product": 456,
@@ -20,7 +20,7 @@
       "imageSrc": "img/drop-down-cart2.jpg",
       "rating": 5,
       "color": "Red",
-      "Size": "XII"
+      "size": "XII"
     }
   ]
 }
