@@ -89,19 +89,30 @@ class Cart {
      * @private
      */
     _init(source){
-        this._render();
         this._dragDrop();
-        fetch(source)
-            .then(result => result.json())
-            .then(data => {
-                for (let product of data.contents){
-                    this.cartItems.push(product);
-                    this._renderItem(product);
-                }
-                this.countGoods = data.countGoods;
-                this.amount = data.amount;
-                this._renderSum(data.amount);
-            })
+        if (!localStorage.getItem('mycart')) {
+            this._render();
+            fetch(source)
+                .then(result => result.json())
+                .then(data => {
+                    for (let product of data.contents) {
+                        this.cartItems.push(product);
+                        this._renderItem(product);
+                    }
+                    this.countGoods = data.countGoods;
+                    this.amount = data.amount;
+                    localStorage.setItem('mycart', JSON.stringify(this.cartItems));
+                    console.log('Items added');
+                    this._renderSum(data.amount);
+                })
+        } else {
+            this._render();
+            console.log('Loading from LocalStorage');
+            this.cartItems = JSON.parse(localStorage.getItem('mycart'));
+            for (let product of this.cartItems) {
+                this._renderItem(product);
+            }
+        }
     }
     _updateCart(product){
         let $currentProduct = $(`[data-product="${product.id_product}"]`);
@@ -135,7 +146,8 @@ class Cart {
             this.countGoods += product.quantity;
             this._renderItem(product);
         }
-        this._renderSum(this.amount, this.countGoods);
+        localStorage.setItem('mycart', JSON.stringify(this.cartItems));
+        this._renderSum(this.amount);
     }
 
     /**
@@ -161,6 +173,7 @@ class Cart {
                     this._updateCart(this.cartItems[i]);
                 }
             }
+            localStorage.setItem('mycart', JSON.stringify(this.cartItems));
         }
 
     }
