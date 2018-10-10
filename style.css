@@ -6,6 +6,18 @@ body {
   margin: 0;
   padding: 0; }
 
+html,
+body {
+  height: 100%; }
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%; }
+
+.content {
+  flex: 1 0 auto; }
+
 .checkout-details-margin {
   margin-bottom: 79px; }
 
@@ -471,6 +483,7 @@ img [alt="shop"]:hover {
   margin-left: 13px; }
 
 .cart-drop-down {
+  z-index: 99;
   display: none;
   padding: 21px 17px;
   width: 265px;
@@ -1293,6 +1306,7 @@ h3 span {
   padding: 23px 0px; }
 
 .footer {
+  flex: 0 0 auto;
   margin-top: 89px;
   background-color: #e6e6e6; }
 
