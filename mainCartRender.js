@@ -108,7 +108,6 @@ class MainCart {
         for (let i = 0; i < this.cartItems.length; i++) {
             //находим в cartItems[] соответствующий товар и работаем с ним в цикле
             if (this.cartItems[i].id_product == event.target.getAttribute('data-id')) {
-                console.log('Hello');
                 this.cartItems[i].quantity--;
                 this.amount = this.amount - this.cartItems[i].price;
                 this.countGoods = this.countGoods - 1;

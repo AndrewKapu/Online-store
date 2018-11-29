@@ -1,0 +1,17 @@
+{
+  "name": "Professional HTML CSS",
+  "homepage": "https://github.com/AndrewKapu/Online-store",
+  "authors": [
+    "Andrew <andrewinapple@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
