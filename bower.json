@@ -1,17 +1,22 @@
 {
-  "name": "Professional HTML CSS",
-  "homepage": "https://github.com/AndrewKapu/Online-store",
-  "authors": [
-    "Andrew <andrewinapple@gmail.com>"
-  ],
+  "name": "online-store",
   "description": "",
-  "main": "",
-  "license": "MIT",
+  "main": "index.html",
+  "authors": [
+    "Andrew"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/AndrewKapu/Online-store",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
+    "app/libs",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "font-awesome": "^5.6.1"
+  }
 }
